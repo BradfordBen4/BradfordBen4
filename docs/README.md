@@ -42,3 +42,26 @@ pages).
 
 Copy `.env.example` to `.env.local` and fill in Supabase, Stripe, and
 Cloudinary credentials before running auth, checkout, or media upload flows.
+
+## Database
+
+`supabase/migrations/20250101000000_init_schema.sql` creates the full schema
+(`profiles`, `products`, `purchases`, `memberships`, `stories`, `passports`,
+`classrooms`) with Row Level Security enabled and a trigger that creates a
+`profiles` row from signup metadata whenever a new `auth.users` row is
+created. `supabase/seed.sql` seeds `products` and `stories` with the same
+catalog the frontend currently ships as mock data, so the two stay in sync
+once pages are wired to read from Supabase.
+
+Apply it with the Supabase CLI:
+
+```bash
+supabase link --project-ref <your-project-ref>
+supabase db push
+supabase db execute -f supabase/seed.sql
+```
+
+or paste the SQL files into the Supabase Dashboard's SQL Editor. The
+migration was verified end-to-end against a local Postgres 16 instance
+(schema creation, RLS policies, the `handle_new_user` trigger, and the seed
+data all applied cleanly) before being committed.

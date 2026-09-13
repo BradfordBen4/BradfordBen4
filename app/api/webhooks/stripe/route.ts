@@ -38,8 +38,15 @@ export async function POST(request: NextRequest) {
             { onConflict: "user_id" },
           );
         } else if (supabase && session.mode === "payment" && session.metadata?.productSlug) {
+          const { data: product } = await supabase
+            .from("products")
+            .select("id")
+            .eq("slug", session.metadata.productSlug)
+            .maybeSingle();
+
           await supabase.from("purchases").insert({
-            product_id: session.metadata.productSlug,
+            user_id: session.metadata.userId || null,
+            product_id: product?.id ?? null,
             stripe_session_id: session.id,
             amount: (session.amount_total ?? 0) / 100,
           });

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getStripeClient } from "@/lib/stripe";
+import { getSupabaseServerClient } from "@/lib/supabase/server";
 import { getProductBySlug } from "@/lib/mock/products";
 
 export async function POST(request: NextRequest) {
@@ -9,6 +10,9 @@ export async function POST(request: NextRequest) {
   if (!product) {
     return NextResponse.json({ error: "Product not found" }, { status: 404 });
   }
+
+  const supabase = await getSupabaseServerClient();
+  const user = supabase ? (await supabase.auth.getUser()).data.user : null;
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? request.nextUrl.origin;
 
@@ -29,7 +33,8 @@ export async function POST(request: NextRequest) {
           quantity: 1,
         },
       ],
-      metadata: { productSlug: product.slug },
+      customer_email: user?.email ?? undefined,
+      metadata: { productSlug: product.slug, userId: user?.id ?? "" },
       success_url: `${siteUrl}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${siteUrl}/checkout/cancel`,
     });
