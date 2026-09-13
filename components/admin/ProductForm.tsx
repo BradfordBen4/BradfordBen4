@@ -1,8 +1,6 @@
 import CloudinaryUploadField from "@/components/admin/CloudinaryUploadField";
 import { PRODUCT_CATEGORIES } from "@/lib/constants";
-
-const inputClass =
-  "w-full rounded-xl border-2 border-brand-navy/10 bg-white px-3 py-2 font-body text-sm outline-none focus:border-brand-pink";
+import { inputClass } from "@/lib/formStyles";
 
 export type ProductFormValues = {
   slug?: string;
@@ -104,7 +102,7 @@ export default function ProductForm({
 
       <button
         type="submit"
-        className="btn-soft w-fit rounded-full bg-brand-pink px-6 py-2.5 font-body text-sm font-semibold text-white"
+        className="btn-soft w-fit rounded-full bg-brand-pink-ink px-6 py-2.5 font-body text-sm font-semibold text-white"
       >
         {submitLabel}
       </button>

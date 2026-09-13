@@ -2,22 +2,14 @@ import { CheckCircle2 } from "lucide-react";
 import type { MembershipPlan } from "@/lib/constants";
 import SubscribeButton from "@/components/membership/SubscribeButton";
 import { cn } from "@/lib/utils";
-
-const COLOR_CLASSES: Record<string, string> = {
-  pink: "border-brand-pink/40 bg-brand-pink/5",
-  yellow: "border-brand-yellow/50 bg-brand-yellow/10",
-  blue: "border-brand-blue/40 bg-brand-blue/5",
-  green: "border-brand-green/50 bg-brand-green/10",
-  navy: "border-brand-navy/30 bg-brand-navy/5",
-  cream: "border-brand-navy/10 bg-brand-cream",
-};
+import { PLAN_CARD_CLASSES } from "@/lib/colorMaps";
 
 export default function PlanCard({ plan }: { plan: MembershipPlan }) {
   return (
     <div
       className={cn(
         "relative flex flex-col gap-4 rounded-3xl border-2 p-8",
-        COLOR_CLASSES[plan.color],
+        PLAN_CARD_CLASSES[plan.color],
         plan.highlighted && "shadow-lg md:-translate-y-3",
       )}
     >
@@ -32,7 +24,7 @@ export default function PlanCard({ plan }: { plan: MembershipPlan }) {
         <span className="font-heading text-4xl font-semibold text-brand-navy">
           ${plan.price}
         </span>
-        <span className="font-body text-brand-navy/60">/{plan.interval}</span>
+        <span className="font-body text-brand-navy-muted">/{plan.interval}</span>
       </div>
       <ul className="flex flex-col gap-2">
         {plan.features.map((feature) => (

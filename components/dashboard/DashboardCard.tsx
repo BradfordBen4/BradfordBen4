@@ -12,7 +12,7 @@ export default function DashboardCard({
   return (
     <div className="flex flex-col gap-4 rounded-3xl border-2 border-brand-navy/10 bg-white p-6">
       <div className="flex items-center gap-2">
-        <Icon size={20} className="text-brand-pink" />
+        <Icon size={20} className="text-brand-pink-ink" />
         <h2 className="font-heading text-lg font-semibold text-brand-navy">{title}</h2>
       </div>
       {children}

@@ -8,6 +8,7 @@ import { updateStory } from "@/lib/admin/actions";
 
 export const metadata: Metadata = {
   title: "Admin · Edit Story",
+  robots: { index: false, follow: false },
 };
 
 export default async function EditStoryPage({

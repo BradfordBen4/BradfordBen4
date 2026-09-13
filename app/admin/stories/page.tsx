@@ -8,6 +8,7 @@ import { deleteStory } from "@/lib/admin/actions";
 
 export const metadata: Metadata = {
   title: "Admin · Stories",
+  robots: { index: false, follow: false },
 };
 
 export default async function AdminStoriesPage() {
@@ -39,7 +40,7 @@ export default async function AdminStoriesPage() {
       <div className="mt-4 overflow-x-auto rounded-2xl border-2 border-brand-navy/10 bg-white">
         <table className="w-full text-left">
           <thead>
-            <tr className="border-b border-brand-navy/10 font-body text-xs uppercase tracking-wide text-brand-navy/50">
+            <tr className="border-b border-brand-navy/10 font-body text-xs uppercase tracking-wide text-brand-navy-muted">
               <th className="px-4 py-3">Episode</th>
               <th className="px-4 py-3">Title</th>
               <th className="px-4 py-3" />
@@ -56,7 +57,7 @@ export default async function AdminStoriesPage() {
                   <div className="flex items-center justify-end gap-2">
                     <Link
                       href={`/admin/stories/${story.id}/edit`}
-                      className="rounded-full p-2 text-brand-navy/60 hover:bg-brand-navy/5"
+                      className="rounded-full p-2 text-brand-navy-muted hover:bg-brand-navy/5"
                       aria-label="Edit"
                     >
                       <Pencil size={16} />
@@ -64,7 +65,7 @@ export default async function AdminStoriesPage() {
                     <form action={deleteStory.bind(null, story.id)}>
                       <button
                         type="submit"
-                        className="rounded-full p-2 text-brand-pink hover:bg-brand-pink/10"
+                        className="rounded-full p-2 text-brand-pink-ink hover:bg-brand-pink/10"
                         aria-label="Delete"
                       >
                         <Trash2 size={16} />
@@ -76,7 +77,7 @@ export default async function AdminStoriesPage() {
             ))}
             {(!stories || stories.length === 0) && (
               <tr>
-                <td colSpan={3} className="px-4 py-8 text-center font-body text-sm text-brand-navy/50">
+                <td colSpan={3} className="px-4 py-8 text-center font-body text-sm text-brand-navy-muted">
                   No stories yet. Write Bella&rsquo;s next episode!
                 </td>
               </tr>

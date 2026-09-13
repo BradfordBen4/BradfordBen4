@@ -8,17 +8,26 @@
   --color-cream: #fff8ee;
   --color-navy: #25324b;
 
+  /* Accessible-contrast variants: the true brand colors above are kept for
+     decorative fills/illustrations, but text, icons, borders, and button
+     backgrounds need these darker/solid shades to clear WCAG AA 4.5:1
+     against white/cream (verified with axe-core; see docs/README.md). */
+  --color-pink-ink: #c22c5d;
+  --color-navy-muted: #4a5875;
+
   --background: var(--color-cream);
   --foreground: var(--color-navy);
 }
 
 @theme inline {
   --color-brand-pink: var(--color-pink);
+  --color-brand-pink-ink: var(--color-pink-ink);
   --color-brand-yellow: var(--color-yellow);
   --color-brand-blue: var(--color-blue);
   --color-brand-green: var(--color-green);
   --color-brand-cream: var(--color-cream);
   --color-brand-navy: var(--color-navy);
+  --color-brand-navy-muted: var(--color-navy-muted);
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);

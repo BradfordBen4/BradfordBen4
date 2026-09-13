@@ -1,7 +1,5 @@
 import CloudinaryUploadField from "@/components/admin/CloudinaryUploadField";
-
-const inputClass =
-  "w-full rounded-xl border-2 border-brand-navy/10 bg-white px-3 py-2 font-body text-sm outline-none focus:border-brand-pink";
+import { inputClass } from "@/lib/formStyles";
 
 export type StoryFormValues = {
   slug?: string;

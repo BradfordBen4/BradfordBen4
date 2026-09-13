@@ -20,6 +20,7 @@ export default function DashboardTabs() {
         <Link
           key={tab.href}
           href={tab.href}
+          aria-current={pathname === tab.href ? "page" : undefined}
           className={cn(
             "btn-soft rounded-full px-4 py-2 text-sm font-semibold",
             pathname === tab.href

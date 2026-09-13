@@ -27,7 +27,7 @@ export default function PassportBook({ passport }: { passport: typeof MOCK_PASSP
         <span className="font-heading text-3xl font-semibold text-brand-navy">
           {passport.stars}
         </span>
-        <span className="font-body text-brand-navy/60">stars earned</span>
+        <span className="font-body text-brand-navy-muted">stars earned</span>
       </motion.div>
 
       <div className="w-full">

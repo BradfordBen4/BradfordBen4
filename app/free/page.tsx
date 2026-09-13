@@ -31,7 +31,7 @@ export default function FreeResourcesIndexPage() {
               <h2 className="font-heading text-lg font-semibold text-brand-navy">
                 {page.title}
               </h2>
-              <p className="font-body text-sm text-brand-navy/60">{page.freebieTitle}</p>
+              <p className="font-body text-sm text-brand-navy-muted">{page.freebieTitle}</p>
             </div>
           </Link>
         ))}

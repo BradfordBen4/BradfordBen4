@@ -29,7 +29,7 @@ export default async function StoryPage({
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6">
-      <span className="font-button text-sm font-semibold uppercase tracking-wide text-brand-navy/50">
+      <span className="font-button text-sm font-semibold uppercase tracking-wide text-brand-navy-muted">
         Episode {story.episodeNumber}
       </span>
       <h1 className="mt-2 font-heading text-3xl font-semibold text-brand-navy sm:text-4xl">

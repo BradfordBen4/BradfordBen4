@@ -86,7 +86,7 @@ export default async function SeoLandingPage({
         </section>
       )}
 
-      <p className="py-8 text-center font-body text-sm text-brand-navy/40">
+      <p className="py-8 text-center font-body text-sm text-brand-navy-muted">
         Looking for more free printables? <Link href="/free" className="underline">Browse them all</Link>.
       </p>
     </div>

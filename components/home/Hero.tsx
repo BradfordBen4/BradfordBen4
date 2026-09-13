@@ -19,7 +19,7 @@ export default function Hero() {
         >
           <motion.span
             variants={fadeInUp}
-            className="rounded-full bg-white px-4 py-1 font-button text-sm font-semibold text-brand-pink shadow-sm"
+            className="rounded-full bg-white px-4 py-1 font-button text-sm font-semibold text-brand-pink-ink shadow-sm"
           >
             🐰 Meet Bella the Brave Bunny
           </motion.span>

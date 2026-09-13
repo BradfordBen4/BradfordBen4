@@ -26,7 +26,7 @@ export default function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="font-button text-sm font-semibold text-brand-navy/80 transition-colors hover:text-brand-pink"
+              className="font-button text-sm font-semibold text-brand-navy/80 transition-colors hover:text-brand-pink-ink"
             >
               {item.label}
             </Link>

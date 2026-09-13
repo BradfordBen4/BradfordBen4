@@ -28,7 +28,7 @@ export default function MembershipPage() {
         ))}
       </div>
 
-      <p className="mt-10 text-center font-body text-sm text-brand-navy/50">
+      <p className="mt-10 text-center font-body text-sm text-brand-navy-muted">
         Cancel anytime. Prices are billed monthly in USD.
       </p>
     </div>

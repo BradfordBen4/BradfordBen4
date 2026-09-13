@@ -25,7 +25,7 @@ export default function ParentSection() {
         >
           <motion.span
             variants={fadeInUp}
-            className="rounded-full bg-white px-4 py-1 font-button text-sm font-semibold text-brand-pink"
+            className="rounded-full bg-white px-4 py-1 font-button text-sm font-semibold text-brand-pink-ink"
           >
             For Parents
           </motion.span>
@@ -38,7 +38,7 @@ export default function ParentSection() {
           <motion.ul variants={fadeInUp} className="flex flex-col gap-2">
             {POINTS.map((point) => (
               <li key={point} className="flex items-center gap-2 font-body text-brand-navy/75">
-                <CheckCircle2 size={18} className="shrink-0 text-brand-pink" />
+                <CheckCircle2 size={18} className="shrink-0 text-brand-pink-ink" />
                 {point}
               </li>
             ))}

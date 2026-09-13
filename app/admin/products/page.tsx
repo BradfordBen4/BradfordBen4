@@ -8,6 +8,7 @@ import { deleteProduct } from "@/lib/admin/actions";
 
 export const metadata: Metadata = {
   title: "Admin · Products",
+  robots: { index: false, follow: false },
 };
 
 export default async function AdminProductsPage() {
@@ -32,7 +33,7 @@ export default async function AdminProductsPage() {
         </h2>
         <Link
           href="/admin/products/new"
-          className="btn-soft rounded-full bg-brand-pink px-4 py-2 font-body text-sm font-semibold text-white"
+          className="btn-soft rounded-full bg-brand-pink-ink px-4 py-2 font-body text-sm font-semibold text-white"
         >
           + New Product
         </Link>
@@ -41,7 +42,7 @@ export default async function AdminProductsPage() {
       <div className="mt-4 overflow-x-auto rounded-2xl border-2 border-brand-navy/10 bg-white">
         <table className="w-full text-left">
           <thead>
-            <tr className="border-b border-brand-navy/10 font-body text-xs uppercase tracking-wide text-brand-navy/50">
+            <tr className="border-b border-brand-navy/10 font-body text-xs uppercase tracking-wide text-brand-navy-muted">
               <th className="px-4 py-3">Title</th>
               <th className="px-4 py-3">Categories</th>
               <th className="px-4 py-3">Price</th>
@@ -52,7 +53,7 @@ export default async function AdminProductsPage() {
             {(products ?? []).map((product) => (
               <tr key={product.id} className="border-b border-brand-navy/5 last:border-0">
                 <td className="px-4 py-3 font-body text-sm text-brand-navy">{product.title}</td>
-                <td className="px-4 py-3 font-body text-xs text-brand-navy/60">
+                <td className="px-4 py-3 font-body text-xs text-brand-navy-muted">
                   {(product.categories ?? []).join(", ")}
                 </td>
                 <td className="px-4 py-3 font-body text-sm text-brand-navy">${product.price}</td>
@@ -60,7 +61,7 @@ export default async function AdminProductsPage() {
                   <div className="flex items-center justify-end gap-2">
                     <Link
                       href={`/admin/products/${product.id}/edit`}
-                      className="rounded-full p-2 text-brand-navy/60 hover:bg-brand-navy/5"
+                      className="rounded-full p-2 text-brand-navy-muted hover:bg-brand-navy/5"
                       aria-label="Edit"
                     >
                       <Pencil size={16} />
@@ -68,7 +69,7 @@ export default async function AdminProductsPage() {
                     <form action={deleteProduct.bind(null, product.id)}>
                       <button
                         type="submit"
-                        className="rounded-full p-2 text-brand-pink hover:bg-brand-pink/10"
+                        className="rounded-full p-2 text-brand-pink-ink hover:bg-brand-pink/10"
                         aria-label="Delete"
                       >
                         <Trash2 size={16} />
@@ -80,7 +81,7 @@ export default async function AdminProductsPage() {
             ))}
             {(!products || products.length === 0) && (
               <tr>
-                <td colSpan={4} className="px-4 py-8 text-center font-body text-sm text-brand-navy/50">
+                <td colSpan={4} className="px-4 py-8 text-center font-body text-sm text-brand-navy-muted">
                   No products yet. Create your first one!
                 </td>
               </tr>

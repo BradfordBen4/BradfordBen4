@@ -6,13 +6,7 @@ import { ChevronLeft, ChevronRight, Palette, Home, GraduationCap } from "lucide-
 import Link from "next/link";
 import type { MockStory } from "@/lib/mock/stories";
 import Button from "@/components/ui/Button";
-
-const COLOR_BG: Record<string, string> = {
-  pink: "bg-brand-pink/15",
-  yellow: "bg-brand-yellow/20",
-  blue: "bg-brand-blue/15",
-  green: "bg-brand-green/20",
-};
+import { COLOR_WASH_MEDIUM } from "@/lib/colorMaps";
 
 export default function StoryReader({ story }: { story: MockStory }) {
   const [pageIndex, setPageIndex] = useState(0);
@@ -21,7 +15,7 @@ export default function StoryReader({ story }: { story: MockStory }) {
   return (
     <div className="flex flex-col items-center gap-6">
       <div
-        className={`flex h-40 w-40 items-center justify-center rounded-full text-7xl ${COLOR_BG[story.color]}`}
+        className={`flex h-40 w-40 items-center justify-center rounded-full text-7xl ${COLOR_WASH_MEDIUM[story.color]}`}
         aria-hidden
       >
         {story.emoji}
@@ -60,7 +54,7 @@ export default function StoryReader({ story }: { story: MockStory }) {
               <span
                 key={i}
                 className={`h-2 w-2 rounded-full ${
-                  i === pageIndex ? "bg-brand-pink" : "bg-brand-navy/15"
+                  i === pageIndex ? "bg-brand-pink-ink" : "bg-brand-navy/15"
                 }`}
               />
             ))}
@@ -101,14 +95,14 @@ export default function StoryReader({ story }: { story: MockStory }) {
               Next Episode &rarr;
             </Button>
           ) : (
-            <p className="font-body text-brand-navy/60">
+            <p className="font-body text-brand-navy-muted">
               More episodes are hopping their way soon!
             </p>
           )}
 
           <Link
             href="/stories"
-            className="font-button text-sm font-semibold text-brand-navy/60 hover:text-brand-pink"
+            className="font-button text-sm font-semibold text-brand-navy-muted hover:text-brand-pink-ink"
           >
             &larr; Back to the Story Hub
           </Link>

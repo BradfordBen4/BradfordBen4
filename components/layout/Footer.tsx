@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ADVENTURE_MAP, MAIN_NAV, SITE_NAME } from "@/lib/constants";
+import EmailCaptureForm from "@/components/marketing/EmailCaptureForm";
 
 export default function Footer() {
   return (
@@ -21,7 +22,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3 className="font-heading text-sm font-semibold uppercase tracking-wide text-brand-navy/60">
+          <h3 className="font-heading text-sm font-semibold uppercase tracking-wide text-brand-navy-muted">
             Explore
           </h3>
           <ul className="mt-3 space-y-2">
@@ -29,7 +30,7 @@ export default function Footer() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="font-body text-sm text-brand-navy/80 hover:text-brand-pink"
+                  className="font-body text-sm text-brand-navy/80 hover:text-brand-pink-ink"
                 >
                   {item.label}
                 </Link>
@@ -38,7 +39,7 @@ export default function Footer() {
             <li>
               <Link
                 href="/free"
-                className="font-body text-sm text-brand-navy/80 hover:text-brand-pink"
+                className="font-body text-sm text-brand-navy/80 hover:text-brand-pink-ink"
               >
                 Free Printables
               </Link>
@@ -47,7 +48,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3 className="font-heading text-sm font-semibold uppercase tracking-wide text-brand-navy/60">
+          <h3 className="font-heading text-sm font-semibold uppercase tracking-wide text-brand-navy-muted">
             Bella&rsquo;s World
           </h3>
           <ul className="mt-3 space-y-2">
@@ -55,7 +56,7 @@ export default function Footer() {
               <li key={loc.slug}>
                 <Link
                   href={loc.href}
-                  className="font-body text-sm text-brand-navy/80 hover:text-brand-pink"
+                  className="font-body text-sm text-brand-navy/80 hover:text-brand-pink-ink"
                 >
                   {loc.emoji} {loc.name}
                 </Link>
@@ -65,29 +66,19 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3 className="font-heading text-sm font-semibold uppercase tracking-wide text-brand-navy/60">
+          <h3 className="font-heading text-sm font-semibold uppercase tracking-wide text-brand-navy-muted">
             Stay Curious
           </h3>
           <p className="mt-3 font-body text-sm text-brand-navy/70">
             Get free printables and Bella story updates in your inbox.
           </p>
-          <form className="mt-3 flex gap-2">
-            <input
-              type="email"
-              placeholder="you@example.com"
-              className="w-full rounded-full border border-brand-navy/15 bg-brand-cream px-4 py-2 text-sm outline-none focus:border-brand-pink"
-            />
-            <button
-              type="submit"
-              className="btn-soft shrink-0 rounded-full bg-brand-pink px-4 py-2 text-sm font-semibold text-white"
-            >
-              Join
-            </button>
-          </form>
+          <div className="mt-3">
+            <EmailCaptureForm source="footer" ctaLabel="Join" />
+          </div>
         </div>
       </div>
 
-      <div className="border-t border-brand-navy/10 py-4 text-center font-body text-xs text-brand-navy/60">
+      <div className="border-t border-brand-navy/10 py-4 text-center font-body text-xs text-brand-navy-muted">
         © {new Date().getFullYear()} {SITE_NAME}™. All rights reserved.
       </div>
     </footer>

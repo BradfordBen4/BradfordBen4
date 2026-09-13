@@ -7,6 +7,7 @@ import { MOCK_PASSPORT } from "@/lib/mock/passport";
 
 export const metadata: Metadata = {
   title: "Learning Passport",
+  robots: { index: false, follow: false },
 };
 
 export default async function PassportPage() {

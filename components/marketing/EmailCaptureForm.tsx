@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 import { motion } from "framer-motion";
 
 export default function EmailCaptureForm({
@@ -13,6 +13,7 @@ export default function EmailCaptureForm({
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [error, setError] = useState<string | null>(null);
+  const inputId = useId();
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -48,20 +49,25 @@ export default function EmailCaptureForm({
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-2 sm:flex-row sm:items-start">
       <div className="flex-1">
+        <label htmlFor={inputId} className="sr-only">
+          Email address
+        </label>
         <input
+          id={inputId}
           type="email"
           required
+          autoComplete="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="you@example.com"
-          className="w-full rounded-full border-2 border-brand-navy/10 bg-white px-4 py-3 font-body text-sm outline-none focus:border-brand-pink"
+          className="w-full rounded-full border-2 border-brand-navy/10 bg-white px-4 py-3 font-body text-sm outline-none focus:border-brand-pink-ink"
         />
-        {error && <p className="mt-1 font-body text-sm text-brand-pink">{error}</p>}
+        {error && <p className="mt-1 font-body text-sm text-brand-pink-ink">{error}</p>}
       </div>
       <button
         type="submit"
         disabled={status === "loading"}
-        className="btn-soft shrink-0 rounded-full bg-brand-pink px-6 py-3 font-body text-sm font-semibold text-white"
+        className="btn-soft shrink-0 rounded-full bg-brand-pink-ink px-6 py-3 font-body text-sm font-semibold text-white"
       >
         {status === "loading" ? "Sending..." : ctaLabel}
       </button>

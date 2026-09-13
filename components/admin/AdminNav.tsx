@@ -22,6 +22,7 @@ export default function AdminNav() {
           <Link
             key={tab.href}
             href={tab.href}
+            aria-current={active ? "page" : undefined}
             className={cn(
               "flex items-center gap-2 rounded-full px-4 py-2 font-body text-sm font-semibold",
               active ? "bg-brand-navy text-white" : "bg-white text-brand-navy/70 border border-brand-navy/10",

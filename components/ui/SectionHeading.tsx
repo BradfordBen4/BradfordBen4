@@ -24,7 +24,7 @@ export default function SectionHeading({
       )}
     >
       {eyebrow && (
-        <span className="rounded-full bg-brand-pink/10 px-4 py-1 font-button text-sm font-semibold text-brand-pink">
+        <span className="rounded-full bg-brand-pink/10 px-4 py-1 font-button text-sm font-semibold text-brand-pink-ink">
           {eyebrow}
         </span>
       )}

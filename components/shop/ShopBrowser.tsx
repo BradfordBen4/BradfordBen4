@@ -29,22 +29,28 @@ export default function ShopBrowser() {
     <div>
       <div className="flex flex-col gap-4">
         <div className="relative w-full sm:max-w-sm">
+          <label htmlFor="shop-search" className="sr-only">
+            Search resources
+          </label>
           <Search
             size={18}
-            className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-brand-navy/40"
+            className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-brand-navy-muted"
           />
           <input
+            id="shop-search"
             type="search"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search resources..."
-            className="w-full rounded-full border-2 border-brand-navy/10 bg-white py-3 pl-11 pr-4 font-body text-sm outline-none focus:border-brand-pink"
+            className="w-full rounded-full border-2 border-brand-navy/10 bg-white py-3 pl-11 pr-4 font-body text-sm outline-none focus:border-brand-pink-ink"
           />
         </div>
 
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2" role="group" aria-label="Filter by category">
           <button
+            type="button"
             onClick={() => setCategory(null)}
+            aria-pressed={category === null}
             className={cn(
               "btn-soft rounded-full px-4 py-2 text-sm font-semibold",
               category === null
@@ -57,11 +63,13 @@ export default function ShopBrowser() {
           {PRODUCT_CATEGORIES.map((cat) => (
             <button
               key={cat}
+              type="button"
               onClick={() => setCategory(cat)}
+              aria-pressed={category === cat}
               className={cn(
                 "btn-soft rounded-full px-4 py-2 text-sm font-semibold",
                 category === cat
-                  ? "bg-brand-pink text-white"
+                  ? "bg-brand-pink-ink text-white"
                   : "bg-white text-brand-navy/70 border border-brand-navy/10",
               )}
             >
@@ -72,7 +80,7 @@ export default function ShopBrowser() {
       </div>
 
       {filtered.length === 0 ? (
-        <p className="mt-12 text-center font-body text-brand-navy/60">
+        <p className="mt-12 text-center font-body text-brand-navy-muted">
           No resources match your search yet. Try a different keyword or category.
         </p>
       ) : (

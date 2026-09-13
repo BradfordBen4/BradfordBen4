@@ -6,9 +6,7 @@ import { getSupabaseBrowserClient } from "@/lib/supabase/client";
 import Button from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 import type { UserRole } from "@/types";
-
-const inputClass =
-  "w-full rounded-2xl border-2 border-brand-navy/10 bg-brand-cream px-4 py-3 font-body text-sm outline-none focus:border-brand-pink";
+import { authInputClass as inputClass } from "@/lib/formStyles";
 
 export default function SignupForm() {
   const [fullName, setFullName] = useState("");
@@ -53,43 +51,60 @@ export default function SignupForm() {
   return (
     <div className="flex flex-col gap-4">
       <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+        <label htmlFor="signup-name" className="sr-only">
+          Full name
+        </label>
         <input
+          id="signup-name"
           type="text"
           required
+          autoComplete="name"
           placeholder="Full name"
           value={fullName}
           onChange={(e) => setFullName(e.target.value)}
           className={inputClass}
         />
+        <label htmlFor="signup-email" className="sr-only">
+          Email address
+        </label>
         <input
+          id="signup-email"
           type="email"
           required
+          autoComplete="email"
           placeholder="Email address"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className={inputClass}
         />
+        <label htmlFor="signup-password" className="sr-only">
+          Password
+        </label>
         <input
+          id="signup-password"
           type="password"
           required
           minLength={6}
+          autoComplete="new-password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           className={inputClass}
         />
 
-        <div className="grid grid-cols-2 gap-2">
+        <div className="grid grid-cols-2 gap-2" role="radiogroup" aria-label="I am a...">
           {(["parent", "teacher"] as const).map((r) => (
             <button
               type="button"
               key={r}
+              role="radio"
+              aria-checked={role === r}
               onClick={() => setRole(r)}
               className={cn(
                 "btn-soft rounded-2xl border-2 px-4 py-3 text-sm font-semibold capitalize",
                 role === r
-                  ? "border-brand-pink bg-brand-pink/10 text-brand-pink"
-                  : "border-brand-navy/10 bg-white text-brand-navy/60",
+                  ? "border-brand-pink-ink bg-brand-pink/10 text-brand-pink-ink"
+                  : "border-brand-navy/10 bg-white text-brand-navy-muted",
               )}
             >
               I&rsquo;m a {r}
@@ -97,15 +112,15 @@ export default function SignupForm() {
           ))}
         </div>
 
-        {error && <p className="font-body text-sm text-brand-pink">{error}</p>}
+        {error && <p className="font-body text-sm text-brand-pink-ink">{error}</p>}
         <Button type="submit" variant="pink" size="md" disabled={loading} className="w-full">
           {loading ? "Creating account..." : "Create Account"}
         </Button>
       </form>
 
-      <p className="text-center font-body text-sm text-brand-navy/60">
+      <p className="text-center font-body text-sm text-brand-navy-muted">
         Already have an account?{" "}
-        <Link href="/login" className="font-semibold text-brand-pink">
+        <Link href="/login" className="font-semibold text-brand-pink-ink">
           Log in
         </Link>
       </p>

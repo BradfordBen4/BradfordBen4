@@ -17,7 +17,7 @@ type ButtonAsLink = CommonProps &
 type ButtonProps = ButtonAsButton | ButtonAsLink;
 
 const variantStyles: Record<NonNullable<CommonProps["variant"]>, string> = {
-  pink: "bg-brand-pink text-white",
+  pink: "bg-brand-pink-ink text-white",
   yellow: "bg-brand-yellow text-brand-navy",
   blue: "bg-brand-blue text-brand-navy",
   navy: "bg-brand-navy text-white",

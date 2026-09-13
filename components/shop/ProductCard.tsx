@@ -1,12 +1,6 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-
-const COLOR_BG: Record<string, string> = {
-  pink: "bg-brand-pink/20",
-  yellow: "bg-brand-yellow/25",
-  blue: "bg-brand-blue/20",
-  green: "bg-brand-green/25",
-};
+import { COLOR_WASH_STRONG } from "@/lib/colorMaps";
 
 export type ProductCardData = {
   slug: string;
@@ -27,7 +21,7 @@ export default function ProductCard({ product }: { product: ProductCardData }) {
       <div
         className={cn(
           "flex h-36 items-center justify-center text-5xl",
-          COLOR_BG[product.color],
+          COLOR_WASH_STRONG[product.color],
         )}
         aria-hidden
       >
@@ -38,13 +32,13 @@ export default function ProductCard({ product }: { product: ProductCardData }) {
           {product.categories.slice(0, 2).map((cat) => (
             <span
               key={cat}
-              className="rounded-full bg-brand-navy/5 px-2 py-0.5 font-button text-xs font-semibold text-brand-navy/60"
+              className="rounded-full bg-brand-navy/5 px-2 py-0.5 font-button text-xs font-semibold text-brand-navy-muted"
             >
               {cat}
             </span>
           ))}
         </div>
-        <h3 className="font-heading text-lg font-semibold text-brand-navy group-hover:text-brand-pink">
+        <h3 className="font-heading text-lg font-semibold text-brand-navy group-hover:text-brand-pink-ink">
           {product.title}
         </h3>
         <p className="font-body text-sm text-brand-navy/70">{product.description}</p>
@@ -52,7 +46,7 @@ export default function ProductCard({ product }: { product: ProductCardData }) {
           <span className="font-heading text-lg font-semibold text-brand-navy">
             ${product.price}
           </span>
-          <span className="btn-soft rounded-full bg-brand-pink px-4 py-1.5 text-sm font-semibold text-white">
+          <span className="btn-soft rounded-full bg-brand-pink-ink px-4 py-1.5 text-sm font-semibold text-white">
             View
           </span>
         </div>

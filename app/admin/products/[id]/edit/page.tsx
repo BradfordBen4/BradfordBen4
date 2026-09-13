@@ -8,6 +8,7 @@ import { updateProduct } from "@/lib/admin/actions";
 
 export const metadata: Metadata = {
   title: "Admin · Edit Product",
+  robots: { index: false, follow: false },
 };
 
 export default async function EditProductPage({

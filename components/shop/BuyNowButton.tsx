@@ -32,7 +32,7 @@ export default function BuyNowButton({ slug }: { slug: string }) {
       <Button variant="pink" size="lg" onClick={handleClick} disabled={loading}>
         {loading ? "Redirecting..." : "Buy Now"}
       </Button>
-      {error && <p className="font-body text-sm text-brand-pink">{error}</p>}
+      {error && <p className="font-body text-sm text-brand-pink-ink">{error}</p>}
     </div>
   );
 }

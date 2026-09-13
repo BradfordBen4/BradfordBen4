@@ -8,6 +8,7 @@ import { FEATURED_PRODUCTS } from "@/lib/mock/products";
 
 export const metadata: Metadata = {
   title: "Teacher Dashboard",
+  robots: { index: false, follow: false },
 };
 
 const WEEK_PLAN = [
@@ -44,7 +45,7 @@ export default async function TeacherDashboardPage() {
               <li key={item.day} className="flex items-center justify-between py-3">
                 <div>
                   <p className="font-button text-sm font-semibold text-brand-navy">{item.day}</p>
-                  <p className="font-body text-sm text-brand-navy/60">{item.focus}</p>
+                  <p className="font-body text-sm text-brand-navy-muted">{item.focus}</p>
                 </div>
                 <span className="rounded-full bg-brand-blue/10 px-3 py-1 font-body text-xs text-brand-navy/70">
                   {item.resource}
@@ -75,7 +76,7 @@ export default async function TeacherDashboardPage() {
                 className="flex items-center justify-between font-body text-sm text-brand-navy/80"
               >
                 {product.title}
-                <span className="text-xs text-brand-navy/40">PDF</span>
+                <span className="text-xs text-brand-navy-muted">PDF</span>
               </li>
             ))}
           </ul>
@@ -102,7 +103,7 @@ export default async function TeacherDashboardPage() {
                 className="flex items-center justify-between font-body text-sm text-brand-navy/80"
               >
                 {product.title}
-                <span className="text-xs text-brand-navy/40">${product.price}</span>
+                <span className="text-xs text-brand-navy-muted">${product.price}</span>
               </li>
             ))}
           </ul>

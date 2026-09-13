@@ -8,6 +8,7 @@ import { requireUser } from "@/lib/auth";
 
 export const metadata: Metadata = {
   title: "Dashboard",
+  robots: { index: false, follow: false },
 };
 
 export default async function DashboardPage() {
@@ -45,7 +46,7 @@ export default async function DashboardPage() {
         </Button>
       </div>
 
-      <p className="mt-6 text-center font-body text-sm text-brand-navy/50">
+      <p className="mt-6 text-center font-body text-sm text-brand-navy-muted">
         Signed up as a {role}. Explore your personalized dashboards above.
       </p>
     </div>

@@ -7,6 +7,7 @@ import { createStory } from "@/lib/admin/actions";
 
 export const metadata: Metadata = {
   title: "Admin · New Story",
+  robots: { index: false, follow: false },
 };
 
 export default async function NewStoryPage() {

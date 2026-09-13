@@ -4,6 +4,7 @@ import Button from "@/components/ui/Button";
 
 export const metadata: Metadata = {
   title: "Checkout Canceled",
+  robots: { index: false, follow: false },
 };
 
 export default function CheckoutCancelPage() {

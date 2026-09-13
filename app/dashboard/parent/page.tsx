@@ -9,6 +9,7 @@ import { STORIES } from "@/lib/mock/stories";
 
 export const metadata: Metadata = {
   title: "Parent Dashboard",
+  robots: { index: false, follow: false },
 };
 
 const WEEKEND_ACTIVITIES = [
@@ -68,7 +69,7 @@ export default async function ParentDashboardPage() {
                   className={`rounded-full px-3 py-1 font-body text-xs ${
                     book.done
                       ? "bg-brand-green/20 text-brand-navy"
-                      : "bg-brand-navy/5 text-brand-navy/50"
+                      : "bg-brand-navy/5 text-brand-navy-muted"
                   }`}
                 >
                   {book.done ? "Read" : "Up next"}
@@ -76,7 +77,7 @@ export default async function ParentDashboardPage() {
               </li>
             ))}
           </ul>
-          <p className="font-body text-xs text-brand-navy/40">
+          <p className="font-body text-xs text-brand-navy-muted">
             {STORIES.length} episodes available in the Story Hub.
           </p>
         </DashboardCard>
@@ -98,7 +99,7 @@ export default async function ParentDashboardPage() {
           </p>
           <Link
             href="/dashboard/passport"
-            className="font-button text-sm font-semibold text-brand-pink"
+            className="font-button text-sm font-semibold text-brand-pink-ink"
           >
             View the Learning Passport &rarr;
           </Link>

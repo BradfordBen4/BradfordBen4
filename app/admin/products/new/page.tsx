@@ -7,6 +7,7 @@ import { createProduct } from "@/lib/admin/actions";
 
 export const metadata: Metadata = {
   title: "Admin · New Product",
+  robots: { index: false, follow: false },
 };
 
 export default async function NewProductPage() {

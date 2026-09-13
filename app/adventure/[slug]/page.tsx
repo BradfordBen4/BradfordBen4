@@ -4,6 +4,7 @@ import { Sparkles } from "lucide-react";
 import BellaMascot, { type BellaPose } from "@/components/bella/BellaMascot";
 import Button from "@/components/ui/Button";
 import { ADVENTURE_MAP } from "@/lib/constants";
+import { COLOR_WASH_SOFT } from "@/lib/colorMaps";
 
 const LOCATION_DETAILS: Record<
   string,
@@ -65,15 +66,6 @@ const LOCATION_DETAILS: Record<
   },
 };
 
-const COLOR_BG: Record<string, string> = {
-  pink: "bg-brand-pink/10",
-  yellow: "bg-brand-yellow/15",
-  blue: "bg-brand-blue/10",
-  green: "bg-brand-green/15",
-  navy: "bg-brand-navy/5",
-  cream: "bg-brand-cream",
-};
-
 function getLocation(slug: string) {
   return ADVENTURE_MAP.find((l) => l.slug === slug);
 }
@@ -109,7 +101,7 @@ export default async function AdventureLocationPage({
 
   return (
     <div>
-      <section className={COLOR_BG[location.color]}>
+      <section className={COLOR_WASH_SOFT[location.color]}>
         <div className="mx-auto flex max-w-4xl flex-col items-center gap-4 px-4 py-16 text-center sm:px-6">
           <span className="text-6xl" aria-hidden>
             {location.emoji}
@@ -131,7 +123,7 @@ export default async function AdventureLocationPage({
               key={bullet}
               className="flex items-center gap-2 font-body text-brand-navy/80"
             >
-              <Sparkles size={18} className="shrink-0 text-brand-pink" />
+              <Sparkles size={18} className="shrink-0 text-brand-pink-ink" />
               {bullet}
             </li>
           ))}

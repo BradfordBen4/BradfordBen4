@@ -4,13 +4,7 @@ import { CheckCircle2 } from "lucide-react";
 import BuyNowButton from "@/components/shop/BuyNowButton";
 import Button from "@/components/ui/Button";
 import { PRODUCTS, getProductBySlug } from "@/lib/mock/products";
-
-const COLOR_BG: Record<string, string> = {
-  pink: "bg-brand-pink/15",
-  yellow: "bg-brand-yellow/20",
-  blue: "bg-brand-blue/15",
-  green: "bg-brand-green/20",
-};
+import { COLOR_WASH_MEDIUM } from "@/lib/colorMaps";
 
 export function generateStaticParams() {
   return PRODUCTS.map((product) => ({ slug: product.slug }));
@@ -40,7 +34,7 @@ export default async function ProductPage({
     <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6">
       <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
         <div
-          className={`flex h-72 items-center justify-center rounded-3xl text-8xl ${COLOR_BG[product.color]}`}
+          className={`flex h-72 items-center justify-center rounded-3xl text-8xl ${COLOR_WASH_MEDIUM[product.color]}`}
           aria-hidden
         >
           {product.emoji}
@@ -51,7 +45,7 @@ export default async function ProductPage({
             {product.categories.map((cat) => (
               <span
                 key={cat}
-                className="rounded-full bg-brand-navy/5 px-3 py-1 font-button text-xs font-semibold text-brand-navy/60"
+                className="rounded-full bg-brand-navy/5 px-3 py-1 font-button text-xs font-semibold text-brand-navy-muted"
               >
                 {cat}
               </span>
