@@ -64,25 +64,77 @@ button,
     border-radius: 999px;
     font-weight: 700;
     box-shadow: 0 6px 0 rgba(37, 50, 75, 0.15);
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
   }
 
   .btn-soft:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 0 rgba(37, 50, 75, 0.15);
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 10px 0 rgba(37, 50, 75, 0.15), 0 16px 24px -8px rgba(37, 50, 75, 0.25);
   }
 
   .btn-soft:active {
-    transform: translateY(2px);
+    transform: translateY(1px) scale(0.98);
     box-shadow: 0 2px 0 rgba(37, 50, 75, 0.15);
   }
 
   .card-lift {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease,
+      border-color 0.3s ease;
   }
 
   .card-lift:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 16px 30px rgba(37, 50, 75, 0.12);
+    transform: translateY(-8px) scale(1.015);
+    box-shadow: 0 24px 40px -12px rgba(37, 50, 75, 0.2), 0 8px 16px -8px rgba(37, 50, 75, 0.12);
+  }
+
+  /* Rainbow accents — used sparingly for storybook sparkle: section dividers,
+     underline flourishes, and the occasional gradient wordmark highlight. */
+  .text-gradient-rainbow {
+    background: linear-gradient(
+      90deg,
+      var(--color-pink) 0%,
+      var(--color-yellow) 35%,
+      var(--color-green) 65%,
+      var(--color-blue) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .bg-gradient-rainbow {
+    background: linear-gradient(
+      90deg,
+      var(--color-pink) 0%,
+      var(--color-yellow) 35%,
+      var(--color-green) 65%,
+      var(--color-blue) 100%
+    );
+  }
+
+  .rainbow-divider {
+    height: 6px;
+    border-radius: 999px;
+    background: linear-gradient(
+      90deg,
+      var(--color-pink) 0%,
+      var(--color-yellow) 35%,
+      var(--color-green) 65%,
+      var(--color-blue) 100%
+    );
+  }
+
+  /* Soft ambient "grounding" shadow — an ellipse used under Bella and other
+     floating illustrations so they feel like they're resting in the scene
+     rather than pasted on top of it. */
+  .grounding-shadow {
+    background: radial-gradient(ellipse 60% 100% at center, rgba(37, 50, 75, 0.16), transparent 70%);
+  }
+
+  /* Blurred color-wash blobs for layered, storybook-style backgrounds. */
+  .bg-blob {
+    border-radius: 50%;
+    filter: blur(50px);
+    opacity: 0.55;
   }
 }

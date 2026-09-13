@@ -25,6 +25,15 @@ export const COLOR_WASH_STRONG: Record<string, string> = {
   green: "bg-brand-green/25",
 };
 
+// Soft two-tone gradient washes for card visual headers (product covers,
+// story covers) — adds depth in place of a flat color block.
+export const COLOR_WASH_GRADIENT: Record<string, string> = {
+  pink: "bg-gradient-to-br from-brand-pink/30 via-brand-pink/15 to-transparent",
+  yellow: "bg-gradient-to-br from-brand-yellow/35 via-brand-yellow/15 to-transparent",
+  blue: "bg-gradient-to-br from-brand-blue/30 via-brand-blue/15 to-transparent",
+  green: "bg-gradient-to-br from-brand-green/35 via-brand-green/15 to-transparent",
+};
+
 export const LOCATION_CARD_CLASSES: Record<string, string> = {
   pink: "bg-brand-pink/10 border-brand-pink/30 hover:border-brand-pink-ink",
   yellow: "bg-brand-yellow/15 border-brand-yellow/40 hover:border-brand-yellow",

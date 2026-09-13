@@ -13,18 +13,21 @@ export default function LocationCard({ location }: { location: AdventureLocation
       <Link
         href={location.href}
         className={cn(
-          "card-lift group flex h-full flex-col gap-3 rounded-3xl border-2 p-6",
+          "card-lift group flex h-full flex-col gap-3 rounded-[1.75rem] border-2 p-6 shadow-[0_6px_20px_-8px_rgba(37,50,75,0.1)]",
           LOCATION_CARD_CLASSES[location.color],
         )}
       >
-        <span className="text-4xl" aria-hidden>
+        <span
+          className="inline-block w-fit text-4xl transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-110"
+          aria-hidden
+        >
           {location.emoji}
         </span>
         <h3 className="font-heading text-xl font-semibold text-brand-navy">
           {location.name}
         </h3>
         <p className="font-body text-sm text-brand-navy/70">{location.description}</p>
-        <span className="mt-auto font-button text-sm font-semibold text-brand-navy-muted group-hover:text-brand-pink-ink">
+        <span className="mt-auto flex items-center gap-1 font-button text-sm font-semibold text-brand-navy-muted transition-all group-hover:translate-x-1 group-hover:text-brand-pink-ink">
           Visit &rarr;
         </span>
       </Link>

@@ -13,13 +13,15 @@ export default function PassportBook({ passport }: { passport: typeof MOCK_PASSP
       variants={staggerContainer}
       initial="hidden"
       animate="visible"
-      className="mx-auto flex max-w-2xl flex-col items-center gap-8 rounded-[2.5rem] border-4 border-brand-yellow bg-white p-8 text-center shadow-sm"
+      className="mx-auto flex max-w-2xl flex-col items-center gap-8 rounded-[2.5rem] border-4 border-brand-yellow bg-white p-8 text-center shadow-[0_20px_50px_-16px_rgba(37,50,75,0.22)]"
     >
       <motion.div variants={popIn} className="flex flex-col items-center gap-2">
         <BellaMascot pose="celebrate" size={140} />
+        <div aria-hidden className="grounding-shadow -mt-2 h-4 w-24" />
         <h1 className="font-heading text-2xl font-semibold text-brand-navy">
           {passport.childName}&rsquo;s Learning Passport
         </h1>
+        <div className="rainbow-divider w-16" />
       </motion.div>
 
       <motion.div variants={popIn} className="flex items-center gap-2">
@@ -41,8 +43,10 @@ export default function PassportBook({ passport }: { passport: typeof MOCK_PASSP
               key={badge.id}
               variants={popIn}
               className={cn(
-                "flex flex-col items-center gap-1 rounded-2xl p-3",
-                badge.earned ? "bg-brand-yellow/15" : "bg-brand-navy/5 opacity-40",
+                "flex flex-col items-center gap-1 rounded-2xl p-3 transition-transform duration-300",
+                badge.earned
+                  ? "bg-brand-yellow/15 shadow-[0_4px_14px_-6px_rgba(255,216,77,0.6)] hover:-translate-y-1 hover:scale-105"
+                  : "bg-brand-navy/5 opacity-40",
               )}
             >
               <span className="text-3xl" aria-hidden>
