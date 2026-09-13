@@ -6,10 +6,16 @@ export const metadata: Metadata = {
   title: "Log In",
 };
 
-export default function LoginPage() {
+export default async function LoginPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ next?: string }>;
+}) {
+  const { next } = await searchParams;
+
   return (
     <AuthCard title="Welcome Back!" subtitle="Log in to continue your adventure with Bella.">
-      <LoginForm />
+      <LoginForm redirectTo={next ?? "/dashboard"} />
     </AuthCard>
   );
 }

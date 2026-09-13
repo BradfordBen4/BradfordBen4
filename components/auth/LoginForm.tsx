@@ -9,7 +9,7 @@ import Button from "@/components/ui/Button";
 const inputClass =
   "w-full rounded-2xl border-2 border-brand-navy/10 bg-brand-cream px-4 py-3 font-body text-sm outline-none focus:border-brand-pink";
 
-export default function LoginForm() {
+export default function LoginForm({ redirectTo = "/dashboard" }: { redirectTo?: string }) {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -24,7 +24,7 @@ export default function LoginForm() {
       const supabase = getSupabaseBrowserClient();
       const { error } = await supabase.auth.signInWithPassword({ email, password });
       if (error) throw error;
-      router.push("/dashboard");
+      router.push(redirectTo);
       router.refresh();
     } catch (err) {
       setError(err instanceof Error ? err.message : "Something went wrong.");
@@ -38,7 +38,9 @@ export default function LoginForm() {
       const supabase = getSupabaseBrowserClient();
       const { error } = await supabase.auth.signInWithOAuth({
         provider: "google",
-        options: { redirectTo: `${window.location.origin}/auth/callback` },
+        options: {
+          redirectTo: `${window.location.origin}/auth/callback?next=${encodeURIComponent(redirectTo)}`,
+        },
       });
       if (error) throw error;
     } catch (err) {
