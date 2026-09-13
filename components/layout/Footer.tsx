@@ -35,6 +35,14 @@ export default function Footer() {
                 </Link>
               </li>
             ))}
+            <li>
+              <Link
+                href="/free"
+                className="font-body text-sm text-brand-navy/80 hover:text-brand-pink"
+              >
+                Free Printables
+              </Link>
+            </li>
           </ul>
         </div>
 
