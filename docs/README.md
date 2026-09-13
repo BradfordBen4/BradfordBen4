@@ -65,3 +65,19 @@ or paste the SQL files into the Supabase Dashboard's SQL Editor. The
 migration was verified end-to-end against a local Postgres 16 instance
 (schema creation, RLS policies, the `handle_new_user` trigger, and the seed
 data all applied cleanly) before being committed.
+
+## Admin CMS
+
+`/admin` (products/worksheets/coloring books and Bella stories, with a
+Cloudinary upload field on every file/image input) is only reachable by a
+`profiles.role = 'admin'` user — signup only offers "parent" or "teacher", so
+promote the first admin manually after they sign up:
+
+```sql
+update public.profiles set role = 'admin' where email = 'you@example.com';
+```
+
+All writes go through Server Actions (`lib/admin/actions.ts`) that
+re-verify the caller's admin role and then use the service-role client, so
+`SUPABASE_SERVICE_ROLE_KEY` must be set for create/edit/delete to work (list
+and detail reads use the signed-in user's own session).
